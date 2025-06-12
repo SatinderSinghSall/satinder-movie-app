@@ -6,6 +6,7 @@ import Search from "./components/Search";
 import Spinner from "./components/Spinner";
 import MovieCard from "./components/MovieCard";
 import DeveloperCredit from "./components/DeveloperCredit";
+import ErrorMessage from "./components/ErrorMessage";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -86,7 +87,7 @@ function App() {
           {isLoading ? (
             <Spinner />
           ) : errorMessage ? (
-            <p className="text-red-500">{errorMessages}</p>
+            <ErrorMessage message={errorMessage} />
           ) : (
             <ul>
               {movieList.map((movie) => (
